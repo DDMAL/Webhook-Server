@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  server:
+    image: "ddmal/webhook-server:server"
+    deploy:
+      replicas: 1
+    ports:
+      - "3000:3000"
+  nginx:
+    #image: "nginx:latest"
+    image: "ddmal/webhook-server:nginx"
+    deploy:
+      replicas: 1
+    #volumes:
+    #  - "./Nginx/webhook.conf:/etc/nginx/conf.d/webhook.conf"
+    ports:
+      - "5000:5000"
